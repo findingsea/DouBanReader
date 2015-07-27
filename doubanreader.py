@@ -99,7 +99,7 @@ class DBRClient:
         if month == 0:
             params = {\
                 'status': 'read', \
-                'from': '%d-%01-01T00:00:00+08:00', \
+                'from': '%d-01-01T00:00:00+08:00', \
                     % (year)
                 'to': '%d-01-01T00:00:00+08:00', \
                     % (year + 1)
