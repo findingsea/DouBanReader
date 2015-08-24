@@ -11,7 +11,6 @@ python main.py
 ## 依赖
 
 * [Requests: HTTP for Humans v2.7.0.](http://www.python-requests.org/en/latest/)
-* [urllib3 1.11](https://pypi.python.org/pypi/urllib3)（这个纯粹为去除HTTPS请求的警告）
 
 ## 开发日志
 

@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
-import os, datetime, urllib3
+import os, datetime
 from doubanreader import DBRClient, DBUser
 import template
 
-urllib3.disable_warnings()
 
 user = DBUser()
 client = DBRClient(user)
