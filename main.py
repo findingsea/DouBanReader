@@ -39,6 +39,10 @@ for info in collections:
     book['title'] = info['book']['title']
     book['alt'] = info['book']['alt']
     book['image'] = info['book']['image']
+    if info['book']['images'].has_key('large'):
+        book['image'] = info['book']['images']['large']
+    elif info['book']['images'].has_key('medium'):
+        book['image'] = info['book']['images']['medium']
 
     section_title = template.MARKDOWN_TEMPLATE_SECTION_TITLE % book
     mk_file.write(client.covertToUTF8(section_title))
