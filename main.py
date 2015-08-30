@@ -29,6 +29,10 @@ if not os.path.exists(path):
     os.makedirs(path)
 filename = template.MARKDOWN_TEMPLATE_TITLE % {'year': year, 'month': month} + '.md'
 mk_file = open(path + '/' + filename, 'w+r')
+
+mk_file.write(template.MARKDOWN_TEMPLATE_INTRODUCTION)
+mk_file.write('\n\n')
+
 title = template.MARKDOWN_TEMPLATE_TITLE % {'year': year, 'month': month}
 mk_file.write(client.covertToUTF8(title))
 mk_file.write('\n\n')
