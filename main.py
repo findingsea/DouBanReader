@@ -35,10 +35,6 @@ introduction = template.MARKDOWN_TEMPLATE_INTRODUCTION
 mk_file.write(client.convertToUTF8(introduction))
 mk_file.write('\n\n')
 
-title = template.MARKDOWN_TEMPLATE_TITLE % {'year': year, 'month': month}
-mk_file.write(client.convertToUTF8(title))
-mk_file.write('\n\n')
-
 for info in collections:
     book = {}
     book['id'] = info['book']['id']
