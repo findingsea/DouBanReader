@@ -30,11 +30,13 @@ if not os.path.exists(path):
 filename = template.MARKDOWN_TEMPLATE_TITLE % {'year': year, 'month': month} + '.md'
 mk_file = open(path + '/' + filename, 'w+r')
 
-mk_file.write(template.MARKDOWN_TEMPLATE_INTRODUCTION)
+introduction = template.MARKDOWN_TEMPLATE_INTRODUCTION
+
+mk_file.write(client.convertToUTF8(introduction))
 mk_file.write('\n\n')
 
 title = template.MARKDOWN_TEMPLATE_TITLE % {'year': year, 'month': month}
-mk_file.write(client.covertToUTF8(title))
+mk_file.write(client.convertToUTF8(title))
 mk_file.write('\n\n')
 
 for info in collections:
@@ -49,14 +51,14 @@ for info in collections:
         book['image'] = info['book']['images']['medium']
 
     section_title = template.MARKDOWN_TEMPLATE_SECTION_TITLE % book
-    mk_file.write(client.covertToUTF8(section_title))
+    mk_file.write(client.convertToUTF8(section_title))
     mk_file.write('\n\n')
 
     section_picture = template.MARKDOWN_TEMPLATE_SECTION_PICTURE % book
-    mk_file.write(client.covertToUTF8(section_picture))
+    mk_file.write(client.convertToUTF8(section_picture))
     mk_file.write('\n\n')
 
-    mk_file.write(client.covertToUTF8(client.getUserBookReview(book['id'])))
+    mk_file.write(client.convertToUTF8(client.getUserBookReview(book['id'])))
     mk_file.write('\n\n')
 
 mk_file.close()

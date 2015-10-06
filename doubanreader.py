@@ -148,7 +148,7 @@ class DBRClient:
         content = content.replace('<br/>', '\n')
         return content
 
-    def covertToUTF8(self, content):
+    def convertToUTF8(self, content):
         return content.encode('utf-8')
 
 USER_INFO_FILE = 'user_info.txt'
@@ -165,7 +165,7 @@ DOUBAN_USER_UID = 'uid'
 DOUBAN_USER_NAME = 'name'
 
 ACCESS_TOKEN_URL = 'https://www.douban.com/service/auth2/token'
-AUTHORIZATION_CODE_URL = 'https://www.douban.com/service/auth2/auth?'
+AUTHORIZATION_CODE_URL = 'https://www.douban.com/service/auth2/auth'
 SCOPE = 'shuo_basic_r,shuo_basic_w,douban_basic_common'
 AUTH_USER_INFO_URL = 'https://api.douban.com/v2/user/~me'
 USER_BOOK_COLLECTIONS_URL = 'https://api.douban.com/v2/book/user/%s/collections'
