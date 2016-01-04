@@ -101,7 +101,8 @@ class DBRClient:
                 'from': '%d-01-01T00:00:00+08:00' \
                     % (year),
                 'to': '%d-01-01T00:00:00+08:00' \
-                    % (year + 1)
+                    % (year + 1),
+                'count': 100
             }
         else:
             params = {\
