@@ -12,19 +12,30 @@ if not client.isAuth():
 
 print u'您已经是认证用户:)'
 
+year = 0
+month = 0
+
 while True:
     try:
-        month = int(raw_input(u'请选择月份，或者直接输入年份生成全年的阅读报告：'.encode('utf-8')))
+        print u'输入格式：'
+        print u'1.直接输入月份生成当年该月的读书报告。'
+        print u'2.直接输入年份生成该年的全年读书报告。'
+        print u'3.输入格式为xxxx.xx生成指定年份指定月份的读书报告。\n'
+        s = raw_input(u'请输入您需要生成的读书报告：'.encode('utf-8'))
+        if s.index('.') != -1:
+            year = int(s.split('.')[0])
+            month = int(s.split('.')[1])
+        elif len(s) == 4:
+            year = int(s)
+        else:
+            month = int(s)
     except Exception, e:
         print u'您的输入有误！'
     else:
         break
 
-if 1 <= month and month <= 12:
+if year == 0:
     year = datetime.date.today().year
-else:
-    year = month
-    month = 0
 
 collections = client.getUserBookCollections(year, month)
 
