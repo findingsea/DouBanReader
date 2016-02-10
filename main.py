@@ -22,7 +22,7 @@ while True:
         print u'2.直接输入年份生成该年的全年读书报告。'
         print u'3.输入格式为xxxx.xx生成指定年份指定月份的读书报告。\n'
         s = raw_input(u'请输入您需要生成的读书报告：'.encode('utf-8'))
-        if s.index('.') != -1:
+        if s.find('.') != -1:
             year = int(s.split('.')[0])
             month = int(s.split('.')[1])
         elif len(s) == 4:
