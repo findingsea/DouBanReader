@@ -147,7 +147,11 @@ class DBRClient:
         pattern = u'(.*)<spanproperty="v:description"class="">(.*?)</span>(.*)'
         content = re.match(pattern, res_text).group(2)
         content = content.replace('<br/>', '\n')
-        return content
+        ind = content.find('<divclass')
+        if ind == -1:
+            return content
+        else:
+            return content[:ind]
 
     def convertToUTF8(self, content):
         return content.encode('utf-8')
