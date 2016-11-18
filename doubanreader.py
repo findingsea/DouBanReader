@@ -74,7 +74,7 @@ class DBRClient:
             'code': authorization_code}
         res = requests.post(\
             url=ACCESS_TOKEN_URL, data=params, \
-            headers={'Content-Type': 'application/x-www-form-urlencoded'}\
+            headers={'Content-Type': 'application/x-www-form-urlencoded'} \
         ).json()
 
         self.user.authorization_code = authorization_code
@@ -153,6 +153,15 @@ class DBRClient:
         else:
             return content[:ind]
 
+    def getBookTags(self, book_id):
+        res = requests.get(BOOK_TAGS_URL % book_id).json()
+        tags_list = []
+        for tag in res['tags']:
+            tags_list.append(tag['name'])
+            if len(tags_list) == 10:
+                break
+        return tags_list
+
     def convertToUTF8(self, content):
         return content.encode('utf-8')
 
@@ -175,3 +184,4 @@ SCOPE = 'shuo_basic_r,shuo_basic_w,douban_basic_common'
 AUTH_USER_INFO_URL = 'https://api.douban.com/v2/user/~me'
 USER_BOOK_COLLECTIONS_URL = 'https://api.douban.com/v2/book/user/%s/collections'
 BOOK_REVIEWS_URL = 'https://api.douban.com/v2/book/%s/reviews'
+BOOK_TAGS_URL = 'https://api.douban.com/v2/book/%s/tags'
